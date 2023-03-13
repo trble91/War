@@ -9,6 +9,7 @@ class Card {
 class Deck {
     constructor() {
         this.cards = []
+        this.createDeck()
     }
 
     createDeck() {
@@ -20,6 +21,12 @@ class Deck {
                 this.cards.push(new Card(suits[i], ranks[j], j + 2))
             }
         }
+
+        this.shuffle()
+    }
+
+    shuffle() {
+        this.cards = this.cards.sort((a,b) => 0.5 - Math.random())
     }
 }
 
