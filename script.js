@@ -5,7 +5,7 @@ class Card {
         this.ranks = ranks 
         this.val = value 
     }
-}
+};
 
 class Deck {
     constructor() {
@@ -29,7 +29,8 @@ class Deck {
     shuffle() {
         this.cards = this.cards.sort((a,b) => 0.5 - Math.random())
     }
-}
+};
+
 class GameOfWar {
     constructor(){
         this.p1 = [];
@@ -59,47 +60,25 @@ class GameOfWar {
             this.pile.push(p1card, p2card)
             this.war()
         } else if (p1card.val > p2card.val) {
-        this.p1.unshift(p2card, p1card, ...this.pile)
-        //clear the pile
-        console.log("Player 1 Wins!", this.p1.length); 
-    } else {
-        this.p2.unshift(p1card, p2card, ...this.pile)
-        //clear the pile
-        console.log("Player 2 Wins!", this.p2.length);
+            this.p1.unshift(p2card, p1card, ...this.pile)
+            //clear the pile
+            this.pile = 0 
+            console.log("Player 1 Wins!", this.p1.length); 
+        } else {
+            this.p2.unshift(p1card, p2card, ...this.pile)
+            //clear the pile
+            this.pile = 0 
+            console.log("Player 2 Wins!", this.p2.length);
         }
     }
     war() {
-    // Adjust for edge cases (a player does not have enough cards)
-     this.pile.push(...this.p1.splice(0, 3))
-     this.pile.push(...this.p2.splice(0, 3))
+        // Adjust for edge cases (a player does not have enough cards)
+        this.pile.push(...this.p1.splice(0, 3))
+        this.pile.push(...this.p2.splice(0, 3))
 
     } 
-}
+};
+
 let game = new GameOfWar();
 
-// //The initial battle between the two players 
-
-    battle() {
-        this.p1card = this.p1.pop();
-           
-        this.p2card = this.p2.pop()
-        if (p1card.value > p2card.value) {
-            
-        }
-        else if (p2card.value > p1card.value) {
-            
-        }
-        else war()
-        }
-//
-    war() {
-        this.p1.unshift(p2card,p1card)     
-    }
-};
-// clear pile this pile = 0
-
-const deck = new Deck()
-console.log(deck)
-console.log(this.p1.length)
-
-
+GameOfWar();
