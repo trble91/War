@@ -62,14 +62,15 @@ class GameOfWar {
             let p1card = this.p1.pop()
             let p2card = this.p2.pop()
 
-            // edge case at the beginning of the game to close it out
-            if (p2card.vale === p1card.vale){
+            if (p2card.vale === p1card.vale) {
                 console.log("War!!!");
                 this.pile.push(p1card, p2card);
                 this.war();
+
                 console.log(p1card.vale)
                 console.log(p2card.vale)
-                } else if (p1card.vale > p2card.vale){
+                
+                } else if (p1card.vale > p2card.vale) {
                 this.p1.unshift(p2card, p1card, ...this.pile);
                 //clear the pile
                 this.pile.length = 0;
@@ -124,3 +125,5 @@ class GameOfWar {
 let game = new GameOfWar()
 
 game.startGame()
+
+// The game runs however it crashes towards the end.
